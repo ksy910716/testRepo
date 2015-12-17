@@ -14,9 +14,7 @@ import android.widget.TextView;
 public class Fragment2 extends Fragment{
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        //View view = inflater.inflate(R.layout.activity_main, container, false);
-        //TextView testId = (TextView) view.findViewById(R.id.testid);
-        //testId.setText("2");
+
         return inflater.inflate(R.layout.fragment_2, container, false);
     }
 }

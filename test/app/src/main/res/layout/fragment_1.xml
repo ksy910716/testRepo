@@ -1,49 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00ffff">
 
-    <!--<TextView
-        android:id="@+id/textView1"
-        android:layout_weight="1"
-        android:text="This is fragment No.1"
-        android:textStyle="bold"
+
+    <ImageView
+        android:id="@+id/imageview1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>-->
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/test"/>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="500px"
-        android:keepScreenOn="true" >
 
-        <ImageView
-            android:id="@+id/imageview1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@drawable/test"
-            android:layout_marginTop="300px"/>
-
-    </RelativeLayout>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:keepScreenOn="true" >
-
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick='selectFrag'
-            android:layout_marginTop="500px"
+            android:layout_marginTop="500dp"
             android:layout_alignParentRight="true"
             android:text="NEXT"/>
-
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

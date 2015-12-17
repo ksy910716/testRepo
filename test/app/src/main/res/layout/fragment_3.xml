@@ -7,22 +7,24 @@
     android:background="#ff0000">
 
     <ListView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listView"
         android:layout_centerInParent="true"/>
 
     <RelativeLayout
+        android:id="@+id/fra1"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:keepScreenOn="true" >
+        android:layout_height="wrap_content"
+        android:keepScreenOn="true"
+        android:layout_alignParentBottom="true"
+        >
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick='selectFrag'
-            android:layout_marginTop="500dp"
             android:layout_alignParentLeft="true"
             android:text="PREV"/>
     </RelativeLayout>

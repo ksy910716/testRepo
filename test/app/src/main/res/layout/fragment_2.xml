@@ -12,23 +12,24 @@
         android:id="@+id/textView2"
         android:text="This is fragment No.2"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
 
 
     <RelativeLayout
+        android:id="@+id/fra1"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:keepScreenOn="true" >
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PREV"
 
-            android:layout_marginTop="500dp"
             android:layout_alignParentLeft="true"
             android:onClick="selectFrag"/>
 
@@ -37,7 +38,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick='selectFrag'
-            android:layout_marginTop="500dp"
             android:layout_alignParentRight="true"
             android:text="NEXT"/>
     </RelativeLayout>

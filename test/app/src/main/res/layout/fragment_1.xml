@@ -11,8 +11,7 @@
         android:id="@+id/imageview1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/test"
-        android:layout_centerInParent="true"/>
+        android:src="@drawable/test"/>
 
     <RelativeLayout
         android:id="@+id/fra1"

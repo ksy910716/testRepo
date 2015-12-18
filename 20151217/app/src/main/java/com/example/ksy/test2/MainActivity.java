@@ -19,15 +19,15 @@ import com.example.ksy.test2.fragment.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    Fragment fr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Fragment fr = new LoginFragment();
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.frame, fr);
+        fr = new LoginFragment();
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().replace(R.id.frame, fr);
         fragmentTransaction.commit();
     }
 
@@ -39,37 +39,31 @@ public class MainActivity extends AppCompatActivity {
 
     //가입하기 클릭시 화면 리플레이스
     public void memJoin(View view){
-        Fragment fr = new JoinFragment();
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.frame, fr);
-        fragmentTransaction.commit();
+        fr = new JoinFragment();
+        test(fr);
+
     }
 
     //가입하기 - 계속 클릭시 화면 리플레이스
     public void join2(View view){
-        Fragment fr = new Join2Fragment();
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.frame, fr);
-        fragmentTransaction.commit();
+        fr = new Join2Fragment();
+        test(fr);
     }
 
     //비밀번호 찾기시 화면 리플레이스
     public void findPwd(View view){
-        Fragment fr = new FindPwdFragment();
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.frame, fr);
-        fragmentTransaction.commit();
+        fr = new FindPwdFragment();
+        test(fr);
     }
 
     //로그인페이지로 리턴
     public void returnLogin(View view){
-        Fragment fr = new LoginFragment();
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.frame, fr);
+        fr = new LoginFragment();
+        test(fr);
+    }
+
+    public void test(Fragment frag){
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().replace(R.id.frame, frag);
         fragmentTransaction.commit();
     }
 

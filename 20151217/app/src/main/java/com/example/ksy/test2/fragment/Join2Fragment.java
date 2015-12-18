@@ -25,14 +25,12 @@ public class Join2Fragment extends Fragment{
 
         //년도 스피너 셋팅
         Spinner spinner = (Spinner) view.findViewById(R.id.year);
-        spinner.setPrompt("선택해주세요");
         adspin = ArrayAdapter.createFromResource(this.getActivity(),R.array.selected1,android.R.layout.simple_spinner_item);
         adspin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adspin);
 
         //사는곳 스피너
         Spinner spinner2 = (Spinner) view.findViewById(R.id.live);
-        spinner2.setPrompt("선택해주세요");
         adspin2 = ArrayAdapter.createFromResource(this.getActivity(),R.array.selected,android.R.layout.simple_spinner_item);
         adspin2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adspin2);

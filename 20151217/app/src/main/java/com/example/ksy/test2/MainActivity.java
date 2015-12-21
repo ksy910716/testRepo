@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.ksy.test2.fragment.FindPwdFragment;
 import com.example.ksy.test2.fragment.Join2Fragment;
@@ -26,16 +28,65 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //fragmentListener(new LoginFragment());
         fr = new LoginFragment();
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().replace(R.id.frame, fr);
-        fragmentTransaction.commit();
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.frame,fr).commit();
+
     }
 
+    /*public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.joinBtn:
+                fragmentListener(new JoinFragment());
+                break;
+            case R.id.joinBtn1:
+                fragmentListener(new Join2Fragment());
+                break;
+            case R.id.findPwd:
+                fragmentListener(new FindPwdFragment());
+                break;
+            default:
+                fragmentListener(new LoginFragment());
+                break;
+            *//*case R.id.btn_signup:
+                ((LoginActivity) getActivity()).replaceFragment(LoginActivity.SIGNUP_FRAGMENT_KEY, new SignUpFragment());
+                break;
+            case R.id.btn_find_password:
+                ((LoginActivity) getActivity()).replaceFragment(LoginActivity.FIND_PASSWORD_FRAGMENT_KEY, new FindPasswrodFragment());
+                break;*//*
+        }
+    }*/
 
-    /**
-     * 나중에 묶어서 다시 할것
-     * @param view
-     */
+
+    /*public void fragmentListener(Fragment fr){
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().replace(R.id.frame, fr);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }*/
+
+   Button.OnClickListener mClickListener = new View.OnClickListener() {
+        public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.joinBtn:
+                fr = new JoinFragment();
+                break;
+            case R.id.joinBtn1:
+                fr = new Join2Fragment();
+                break;
+            case R.id.findPwd:
+                fr = new FindPwdFragment();
+                break;
+            default:
+                fr = new LoginFragment();
+                break;
+        }
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().replace(R.id.frame, fr);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+        }
+    };
+/*
 
     //가입하기 클릭시 화면 리플레이스
     public void memJoin(View view){
@@ -65,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     public void test(Fragment frag){
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().replace(R.id.frame, frag);
         fragmentTransaction.commit();
-    }
+    }*/
 
 /*
     @Override

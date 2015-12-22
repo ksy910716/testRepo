@@ -109,13 +109,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="여자"
-                android:checked="true"
+                android:id="@+id/girl"
                 android:textColor="#FFFFFF"
                 android:textSize="15sp"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="남자"
+                android:id="@+id/boy"
                 android:textColor="#FFFFFF"
                 android:textSize="15sp"/>
         </RadioGroup>
@@ -147,15 +148,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="미혼"
-                android:checked="true"
                 android:textColor="#FFFFFF"
                 android:textSize="15sp"
+                android:id="@+id/notMarried"
                 />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="기혼"
                 android:textColor="#FFFFFF"
+                android:id="@+id/married"
                 android:textSize="15sp"/>
         </RadioGroup>
 

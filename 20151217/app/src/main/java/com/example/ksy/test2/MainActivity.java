@@ -4,140 +4,67 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.TextView;
+import android.util.SparseArray;
 
-import com.example.ksy.test2.fragment.FindPwdFragment;
-import com.example.ksy.test2.fragment.Join2Fragment;
-import com.example.ksy.test2.fragment.JoinFragment;
 import com.example.ksy.test2.fragment.LoginFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     Fragment fr;
+
+    public static final int LOGIN_FRAGMENT_KEY = 0;
+    public static final int SIGNUP_FRAGMENT_KEY = 1;
+    public static final int SIGNUP_ADDITIONAL_INFO_FRAGMENT_KEY = 2;
+    public static final int FIND_PASSWORD_FRAGMENT_KEY = 3;
+
+    final int fragmentReplaceResId = R.id.frame;
+    final boolean isBackStack = true;
+    SparseArray<Fragment> fragmentSparseArray = new SparseArray<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //fragmentListener(new LoginFragment());
-        fr = new LoginFragment();
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.frame,fr).commit();
-
+        replaceFragment(LOGIN_FRAGMENT_KEY, new LoginFragment(), fragmentReplaceResId, isBackStack);
     }
 
-    /*public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.joinBtn:
-                fragmentListener(new JoinFragment());
-                break;
-            case R.id.joinBtn1:
-                fragmentListener(new Join2Fragment());
-                break;
-            case R.id.findPwd:
-                fragmentListener(new FindPwdFragment());
-                break;
-            default:
-                fragmentListener(new LoginFragment());
-                break;
-            *//*case R.id.btn_signup:
-                ((LoginActivity) getActivity()).replaceFragment(LoginActivity.SIGNUP_FRAGMENT_KEY, new SignUpFragment());
-                break;
-            case R.id.btn_find_password:
-                ((LoginActivity) getActivity()).replaceFragment(LoginActivity.FIND_PASSWORD_FRAGMENT_KEY, new FindPasswrodFragment());
-                break;*//*
+    public void replaceFragment(int key, Fragment fragment) {
+        replaceFragment(key, fragment, fragmentReplaceResId, isBackStack);
+    }
+
+    public void replaceFragment(int key, Fragment fragment, int replaceResourceId, boolean isBackStack) {
+
+        Fragment fm = fragmentSparseArray.get(key);
+        if (fm == null) {
+            fragmentSparseArray.put(key, fragment);
+            fm = fragment;
         }
-    }*/
+        replaceFragment(fm, replaceResourceId, isBackStack);
+    }
 
+    private void replaceFragment(Fragment fm, int replaceResourceId, boolean isBackStack) {
 
-    /*public void fragmentListener(Fragment fr){
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().replace(R.id.frame, fr);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }*/
-
-   Button.OnClickListener mClickListener = new View.OnClickListener() {
-        public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.joinBtn:
-                fr = new JoinFragment();
-                break;
-            case R.id.joinBtn1:
-                fr = new Join2Fragment();
-                break;
-            case R.id.findPwd:
-                fr = new FindPwdFragment();
-                break;
-            default:
-                fr = new LoginFragment();
-                break;
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        //ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out);
+        ft.setCustomAnimations(R.anim.anim_fade_in_half, R.anim.anim_fade_out_half, R.anim.anim_fade_in_half, R.anim.anim_fade_out_half);
+        ft.replace(replaceResourceId, fm);
+        if (isBackStack) {
+            /**
+             * 최초 fragment는 backstack에 저장하면 안됨. 그럴 경우 빈 화면이 표시된다.
+             * 이 것을 피하기 위해서는 최초 fragment에 대한 backstack을 지정하지 않거나, 애초에 activity에 fragment를 설정하면 된다.
+             * 여기에는 최초에 fragment가 activity에 설정이 안되어 있어 아래와 같이 처리 한다.
+             */
+            if (fragmentSparseArray.size() > 1)
+                ft.addToBackStack(null);
         }
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().replace(R.id.frame, fr);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-        }
-    };
-/*
-
-    //가입하기 클릭시 화면 리플레이스
-    public void memJoin(View view){
-        fr = new JoinFragment();
-        test(fr);
-
+        ft.commit();
     }
 
-    //가입하기 - 계속 클릭시 화면 리플레이스
-    public void join2(View view){
-        fr = new Join2Fragment();
-        test(fr);
+   @Override
+    public void onBackPressed() {
+       FragmentManager fm = getFragmentManager();
+       fm.popBackStack();
     }
-
-    //비밀번호 찾기시 화면 리플레이스
-    public void findPwd(View view){
-        fr = new FindPwdFragment();
-        test(fr);
-    }
-
-    //로그인페이지로 리턴
-    public void returnLogin(View view){
-        fr = new LoginFragment();
-        test(fr);
-    }
-
-    public void test(Fragment frag){
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().replace(R.id.frame, frag);
-        fragmentTransaction.commit();
-    }*/
-
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
 }

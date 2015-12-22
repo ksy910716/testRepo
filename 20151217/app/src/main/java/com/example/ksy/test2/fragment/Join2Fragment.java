@@ -2,18 +2,15 @@ package com.example.ksy.test2.fragment;
 
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -23,10 +20,13 @@ import com.example.ksy.test2.R;
 /**
  * Created by ium on 14. 2. 25.
  */
-public class Join2Fragment extends Fragment{
+public class Join2Fragment extends Fragment implements View.OnClickListener{
     ArrayAdapter<CharSequence> adspin;
     ArrayAdapter<CharSequence> adspin2;
     boolean mInitSpinner;
+
+    RadioGroup gender;
+    RadioGroup marry;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.join2_fragment, container, false);
@@ -69,44 +69,21 @@ public class Join2Fragment extends Fragment{
             }
         });
 
-       /* view.setFocusableInTouchMode(true);
-        view.requestFocus();
-        view.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_BACK) {
-                    Log.i(JoinFragment.class.getSimpleName(), "onKey Back listener is working!!!");
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                    intent.putExtra("finishstatus", true);
-                    startActivity(intent);
-                    getActivity().finish();
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        });*/
+        gender = (RadioGroup) view.findViewById(R.id.gender);
+        marry = (RadioGroup) view.findViewById(R.id.marry);
+        marry.check(R.id.notMarried);
+        gender.check(R.id.girl);
 
-        view.findViewById(R.id.joinBtn1).setOnClickListener(mClickListener);
-        view.findViewById(R.id.BtnX).setOnClickListener(mClickListener);
-
-
+        view.findViewById(R.id.joinBtn1).setOnClickListener(this);
+        view.findViewById(R.id.BtnX).setOnClickListener(this);
 
         return view;
     }
 
-    View.OnClickListener mClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Fragment fr = new JoinFragment();
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().replace(R.id.frame, fr);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
-            fragmentTransaction.commit();
-        }
-    };
-
+    @Override
+    public void onClick(View view){
+        ((MainActivity) getActivity()).replaceFragment(MainActivity.SIGNUP_FRAGMENT_KEY,new JoinFragment());
+    }
 
 
 }

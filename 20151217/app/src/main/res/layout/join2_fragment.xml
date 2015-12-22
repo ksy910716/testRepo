@@ -2,13 +2,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#111111">
+    android:background="@drawable/login_bg">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/contents1"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -16,15 +20,12 @@
             android:src="@drawable/ic_close_white_24dp"
             android:layout_alignParentRight="true"
             android:id="@+id/BtnX"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
             />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_toplogo_24dp"
-            android:layout_marginTop="50dp"
             android:id="@+id/logo"/>
 
         <ImageView
@@ -34,7 +35,7 @@
             android:layout_below="@id/logo"
             android:layout_marginTop="20dp"
             android:id="@+id/font_logo"
-            android:paddingBottom="50dp"
+            android:paddingBottom="30dp"
             />
 
         <TextView
@@ -42,7 +43,6 @@
             android:layout_height="wrap_content"
             android:text="태어난 해"
             android:id="@+id/text1"
-            android:paddingLeft="30dp"
             android:textColor="#FFFFCC"
             android:textSize="15sp"
             android:layout_alignBottom="@+id/year"/>
@@ -54,16 +54,13 @@
             android:id="@+id/year"
             android:textSize="20sp"
             android:layout_toRightOf="@+id/text1"
-            android:layout_below="@+id/font_logo"
-            android:prompt="@string/chooseSelect"
-            android:layout_marginRight="30dp"></Spinner>
+            android:layout_below="@+id/font_logo"></Spinner>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="사는곳"
             android:id="@+id/text2"
-            android:paddingLeft="30dp"
             android:textSize="15sp"
             android:textColor="#FFFFCC"
             android:layout_alignBottom="@+id/live"/>
@@ -79,8 +76,7 @@
             android:layout_alignLeft="@+id/year"
             android:textColor="#FFFFFF"
             android:prompt="@string/chooseSelect"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp"></Spinner>
+            android:layout_marginTop="10dp"></Spinner>
 
         <TextView
             android:layout_width="wrap_content"
@@ -89,7 +85,6 @@
             android:id="@+id/text3"
             android:textSize="15sp"
             android:textColor="#FFFFCC"
-            android:paddingLeft="30dp"
             android:layout_alignBottom="@+id/gender"
             android:gravity="center"/>
 
@@ -102,7 +97,6 @@
             android:layout_alignLeft="@+id/year"
             android:gravity="center"
             android:layout_below="@+id/live"
-            android:layout_marginRight="30dp"
             android:layout_marginTop="10dp">
 
             <RadioButton
@@ -126,7 +120,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="결혼"
-            android:paddingLeft="30dp"
             android:id="@+id/text4"
             android:textSize="15sp"
             android:textColor="#FFFFCC"
@@ -141,7 +134,6 @@
             android:layout_below="@+id/gender"
             android:layout_alignLeft="@+id/year"
             android:layout_toRightOf="@+id/text4"
-            android:layout_marginRight="30dp"
             android:gravity="center">
 
             <RadioButton
@@ -169,7 +161,6 @@
             android:textSize="15sp"
             android:gravity="center"
             android:textColor="#FFFFCC"
-            android:paddingLeft="30dp"
             android:layout_alignBaseline="@+id/recommandId"/>
 
         <EditText
@@ -179,28 +170,51 @@
             android:layout_alignLeft="@+id/year"
             android:layout_toRightOf="@+id/text5"
             android:layout_below="@+id/marry"
-            android:layout_marginRight="30dp"
             android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
         android:text="확인 버튼을 누르시면 이용약관 및 개인정보취급방침을 읽고 이에 동의하시는 것으로 간주 됩니다."
         android:textColor="#FFFFFF"
         android:id="@+id/font_desc"
         android:layout_below="@+id/recommandId"/>
 
+        <LinearLayout
+            android:id="@+id/button_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/margin_small">
 
-        <Button
+            <Button
+                android:id="@+id/PREV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="5"
+                android:background="@drawable/test_round_btn"
+                android:text="이전"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/joinBtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="5"
+                android:background="@drawable/test_round_btn"
+                android:text="회원가입"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!--<Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="이전"
             android:textSize="15sp"
             android:textColor="#FFFFFF"
-            android:id="@+id/joinBtn1"
+            android:id="@+id/PREV"
             android:paddingRight="60dp"
             android:paddingLeft="60dp"
             android:layout_marginBottom="20dp"
@@ -218,9 +232,10 @@
             android:layout_marginBottom="20dp"
             android:layout_alignParentRight="true"
             android:paddingRight="45dp"
+            android:id="@+id/joinBtn1"
             android:layout_below="@+id/font_desc"
             android:paddingLeft="45dp"
             android:layout_marginTop="10dp"
-            />
+            />-->
     </RelativeLayout>
 </RelativeLayout>

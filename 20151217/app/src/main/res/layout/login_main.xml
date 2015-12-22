@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#111111"
+    android:background="@drawable/login_bg"
     >
 
     <RelativeLayout
@@ -12,12 +12,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/logos"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="20dp"
         >
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_toplogo_24dp"
-            android:layout_marginTop="50dp"
             android:id="@+id/logo"/>
 
         <ImageView
@@ -38,7 +41,6 @@
             android:textColor="#FFFFFF"
             android:layout_alignRight="@id/text2"
             android:layout_alignBaseline="@+id/email"
-            android:paddingLeft="30dp"
             android:layout_below="@+id/font_logo"
             />
         <EditText
@@ -48,7 +50,6 @@
             android:textColor="#FFFFFF"
             android:layout_toRightOf="@id/text1"
             android:backgroundTint="@color/accent"
-            android:layout_marginRight="30dp"
             android:layout_below="@+id/font_logo"
         />
 
@@ -60,7 +61,6 @@
             android:textColor="#FFFFFF"
             android:id="@+id/text2"
             android:text="비밀번호"
-            android:paddingLeft="30dp"
             android:layout_alignBaseline="@+id/pwd"
             />
 
@@ -71,21 +71,19 @@
             android:layout_below="@id/email"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/text2"
-            android:layout_marginRight="30dp"
             android:textColor="#FFFFFF"
         />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LOGIN"
+            android:text="로그인"
             android:textSize="15sp"
             android:textColor="#FFFFFF"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:id="@+id/BtnLogin"
-            android:layout_below="@+id/pwd"/>
+            android:layout_below="@+id/pwd"
+            android:background="@drawable/test_round_btn"/>
 
 
         <TextView
@@ -96,12 +94,40 @@
             android:textColor="#FFFFFF"
             android:id="@+id/findPwd"
             android:layout_below="@+id/BtnLogin"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="30dp"
         />
 
-        <Button
+        <ImageButton
+            android:id="@+id/btn_fb_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_fb_24dp"
+            android:padding="@dimen/margin_normal"
+            android:layout_below="@+id/findPwd"
+            android:background="@drawable/cycle_button"/>
+
+        <ImageButton
+            android:id="@+id/btn_kakao_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_normal"
+            android:layout_toRightOf="@+id/btn_fb_login"
+            android:src="@drawable/ic_kakao_24dp"
+            android:padding="@dimen/margin_normal"
+            android:background="@drawable/cycle_button"
+            android:layout_below="@+id/findPwd"/>
+
+        <ImageButton
+            android:id="@+id/joinBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_join_24dp"
+            android:padding="@dimen/margin_normal"
+            android:layout_below="@+id/findPwd"
+            android:background="@drawable/cycle_button"/>
+       <!-- <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/facebook"
@@ -110,7 +136,6 @@
             android:textSize="15sp"
             android:textColor="#FFFFFF"
             android:layout_below="@+id/findPwd"
-            android:layout_marginBottom="20dp"
             android:layout_marginLeft="30dp"
             />
 
@@ -121,7 +146,6 @@
             android:text="K"
             android:onClick="memJoin"
             android:textSize="15sp"
-            android:layout_marginBottom="20dp"
             android:layout_toRightOf="@id/facebook"
             android:textColor="#FFFFFF"
             android:layout_below="@+id/findPwd"
@@ -139,7 +163,7 @@
             android:layout_below="@+id/findPwd"
             android:layout_alignParentRight="true"
             android:layout_toRightOf="@+id/Kakao"
-            />
+            />-->
 
     </RelativeLayout>
 </RelativeLayout>

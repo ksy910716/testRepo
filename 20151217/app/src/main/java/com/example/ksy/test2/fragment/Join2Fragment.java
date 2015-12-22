@@ -40,9 +40,11 @@ public class Join2Fragment extends Fragment implements View.OnClickListener{
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent,View view, int pos, long id) {
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
-                ((TextView) parent.getChildAt(0)).setTextSize(15);
-                ((TextView) parent.getChildAt(0)).setGravity(Gravity.CENTER);
+                if(parent != null && parent.getChildAt(0) != null) {
+                    ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+                    ((TextView) parent.getChildAt(0)).setTextSize(15);
+                    ((TextView) parent.getChildAt(0)).setGravity(Gravity.CENTER);
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -57,9 +59,11 @@ public class Join2Fragment extends Fragment implements View.OnClickListener{
         spinner2.setAdapter(adspin2);
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
-                ((TextView) parent.getChildAt(0)).setTextSize(15);
-                ((TextView) parent.getChildAt(0)).setGravity(Gravity.CENTER);
+                if(parent != null && parent.getChildAt(0) != null) {
+                    ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+                    ((TextView) parent.getChildAt(0)).setTextSize(15);
+                    ((TextView) parent.getChildAt(0)).setGravity(Gravity.CENTER);
+                }
             }
 
             @Override
@@ -74,8 +78,8 @@ public class Join2Fragment extends Fragment implements View.OnClickListener{
         marry.check(R.id.notMarried);
         gender.check(R.id.girl);
 
-        view.findViewById(R.id.joinBtn1).setOnClickListener(this);
         view.findViewById(R.id.BtnX).setOnClickListener(this);
+        view.findViewById(R.id.PREV).setOnClickListener(this);
 
         return view;
     }

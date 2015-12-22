@@ -6,6 +6,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
+import android.widget.Toast;
 
 import com.example.ksy.test2.fragment.LoginFragment;
 
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity{
     final boolean isBackStack = true;
     SparseArray<Fragment> fragmentSparseArray = new SparseArray<>();
 
+    private long backKeyPressedTime;
+    private Toast toast;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +67,26 @@ public class MainActivity extends AppCompatActivity{
 
    @Override
     public void onBackPressed() {
-       FragmentManager fm = getFragmentManager();
-       fm.popBackStack();
+       /**
+        * 메인페이지에서 백키를 누를경우 종료하시겠습니까? ->종료
+        * 그외에는 백키누르면 이전스택으로만 가면됨
+        */
+       Fragment f = getFragmentManager().findFragmentById(R.id.frame);
+       if(f instanceof LoginFragment){
+           if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+               backKeyPressedTime = System.currentTimeMillis();
+               toast = Toast.makeText(this, "\'뒤로\'버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
+               toast.show();
+               return;
+           }
+           //연속 두번을 누른다
+           if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+               finish();
+               toast.cancel();
+           }
+       }else{
+           FragmentManager fm = getFragmentManager();
+           fm.popBackStack();
+       }
     }
 }

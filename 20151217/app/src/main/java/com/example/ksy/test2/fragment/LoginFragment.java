@@ -15,12 +15,12 @@ import com.example.ksy.test2.R;
 /**
  * Created by ium on 14. 2. 25.
  */
-public class LoginFragment extends Fragment implements View.OnClickListener{
+public class LoginFragment extends Fragment implements View.OnClickListener {
 
     ImageButton btnJoin;
     TextView findPwd;
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.login_main, container, false);
         btnJoin = (ImageButton) view.findViewById(R.id.joinBtn);
         btnJoin.setOnClickListener(this);

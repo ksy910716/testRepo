@@ -9,6 +9,7 @@ import android.util.SparseArray;
 import android.widget.Toast;
 
 import com.example.ksy.test2.fragment.LoginFragment;
+import com.example.ksy.test2.fragment.MainFragment;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity{
     public static final int SIGNUP_FRAGMENT_KEY = 1;
     public static final int SIGNUP_ADDITIONAL_INFO_FRAGMENT_KEY = 2;
     public static final int FIND_PASSWORD_FRAGMENT_KEY = 3;
+    public static final int MAIN_FRAGMENT_KEY = 4;
 
     final int fragmentReplaceResId = R.id.frame;
     final boolean isBackStack = true;
@@ -30,7 +32,9 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        replaceFragment(LOGIN_FRAGMENT_KEY, new LoginFragment(), fragmentReplaceResId, isBackStack);
+        replaceFragment(MAIN_FRAGMENT_KEY, new MainFragment(), fragmentReplaceResId, isBackStack);
+        //첫화면 바궈줄때 이거부터 바꿔주면 댐
+        //replaceFragment(LOGIN_FRAGMENT_KEY, new LoginFragment(), fragmentReplaceResId, isBackStack);
     }
 
     public void replaceFragment(int key, Fragment fragment) {

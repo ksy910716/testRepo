@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+<!--
+    <RelativeLayout
+        android:id="@+id/times"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/now_time"
+             android:text="2:00 PM"
+             android:textSize="32dp"
+             android:layout_marginTop="32dp"
+             android:layout_marginLeft="32dp"/>
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/now_date"
+             android:layout_marginRight="32dp"
+             android:layout_alignParentRight="true"
+             android:layout_marginTop="32dp"
+             android:text="1.4 월요일"
+             android:textSize="16dp"/>
+    </RelativeLayout>-->
+
+
+
+    <android.support.v4.view.DirectionalViewPager
+        android:id="@+id/pager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+</LinearLayout>
